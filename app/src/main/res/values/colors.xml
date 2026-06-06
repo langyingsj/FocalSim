@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <!-- 亮黄色取景框线 -->
+    <color name="focal_frame">#FFFFD700</color>
+    <!-- 选中按钮背景 -->
+    <color name="btn_active_bg">#33FFD700</color>
+    <!-- 未选中按钮边框 -->
+    <color name="btn_inactive_border">#80FFD700</color>
+    <!-- 遮罩半透明黑色 -->
+    <color name="mask_black">#8C000000</color>
+    <!-- 启动图标背景色 -->
+    <color name="ic_launcher_background">#1A1A2E</color>
+</resources>
