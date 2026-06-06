@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 启动图标前景：取景器十字线 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 外框 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="2.5"
+        android:fillColor="#00000000"
+        android:pathData="M30,30 L78,30 L78,78 L30,78 Z" />
+    <!-- 中心横线 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M42,54 L66,54" />
+    <!-- 中心竖线 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="1.5"
+        android:fillColor="#00000000"
+        android:pathData="M54,42 L54,66" />
+    <!-- 左上角装饰 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M30,38 L30,30 L38,30" />
+    <!-- 右上角装饰 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M70,30 L78,30 L78,38" />
+    <!-- 左下角装饰 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M30,70 L30,78 L38,78" />
+    <!-- 右下角装饰 -->
+    <path
+        android:strokeColor="#FFD700"
+        android:strokeWidth="3"
+        android:fillColor="#00000000"
+        android:pathData="M70,78 L78,78 L78,70" />
+</vector>
