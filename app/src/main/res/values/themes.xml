@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 全屏沉浸式主题 -->
+    <style name="Theme.FocalSim" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- 焦段按钮样式（普通焦段） -->
+    <style name="FocalButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">38dp</item>
+        <item name="android:minWidth">48dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:layout_marginStart">3dp</item>
+        <item name="android:layout_marginEnd">3dp</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/btn_text_color</item>
+        <item name="strokeColor">@color/btn_stroke_color</item>
+        <item name="strokeWidth">1.5dp</item>
+        <item name="cornerRadius">19dp</item>
+        <item name="backgroundTint">@color/btn_bg_color</item>
+    </style>
+
+    <!-- 24mm基准按钮样式（特殊高亮） -->
+    <style name="FocalButton.Base" parent="FocalButton">
+        <item name="strokeColor">#B3FFD700</item>
+        <item name="android:textColor">@color/btn_text_color</item>
+    </style>
+</resources>
