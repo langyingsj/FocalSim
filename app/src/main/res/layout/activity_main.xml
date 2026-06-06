@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml - 主界面布局 (v2 - 10个焦段 + 加群按钮)
+    结构：全屏相机预览 + 取景框覆盖层 + 底部可滚动焦段按钮栏 + 右上角加群入口
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ① CameraX 预览视图：全屏显示后置摄像头画面 -->
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ② 取景框覆盖层：自定义View，绘制焦段矩形框和遮罩 -->
+    <com.photography.focalsim.OverlayView
+        android:id="@+id/overlayView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ③ 顶部信息栏：显示当前焦段和视场角 -->
+    <LinearLayout
+        android:id="@+id/infoBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="36dp"
+        android:paddingBottom="12dp"
+        android:background="@drawable/bg_info_bar">
+
+        <!-- 当前焦段数值 -->
+        <TextView
+            android:id="@+id/tvFocalValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="24mm"
+            android:textColor="#FFD700"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:shadowColor="#80000000"
+            android:shadowRadius="4"
+            android:shadowDx="1"
+            android:shadowDy="1" />
+
+        <!-- 视场角和场景描述 -->
+        <TextView
+            android:id="@+id/tvFovInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:text="对角线视场角 84°\n广角 · 风光全景"
+            android:textColor="#CCFFFFFF"
+            android:textSize="13sp"
+            android:lineSpacingMultiplier="1.3"
+            android:shadowColor="#80000000"
+            android:shadowRadius="3"
+            android:shadowDx="1"
+            android:shadowDy="1" />
+    </LinearLayout>
+
+    <!-- ④ 右上角"加群"按钮 -->
+    <LinearLayout
+        android:id="@+id/btnGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="12dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:background="@drawable/bg_group_btn"
+        android:clickable="true"
+        android:focusable="true">
+
+        <!-- 群聊图标 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👥"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="加群"
+            android:textColor="#CCFFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- ⑤ 底部焦段按钮栏 - 可横向滚动 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:paddingTop="14dp"
+        android:paddingBottom="28dp"
+        android:background="@drawable/bg_control_bar">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:id="@+id/focalButtonContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
+
+                <!-- 9mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn9mm"
+                    style="@style/FocalButton"
+                    android:text="9mm"
+                    android:tag="9" />
+
+                <!-- 11mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn11mm"
+                    style="@style/FocalButton"
+                    android:text="11mm"
+                    android:tag="11" />
+
+                <!-- 12mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn12mm"
+                    style="@style/FocalButton"
+                    android:text="12mm"
+                    android:tag="12" />
+
+                <!-- 14mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn14mm"
+                    style="@style/FocalButton"
+                    android:text="14mm"
+                    android:tag="14" />
+
+                <!-- 16mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn16mm"
+                    style="@style/FocalButton"
+                    android:text="16mm"
+                    android:tag="16" />
+
+                <!-- 24mm（基准） -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn24mm"
+                    style="@style/FocalButton.Base"
+                    android:text="24mm"
+                    android:tag="24" />
+
+                <!-- 35mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn35mm"
+                    style="@style/FocalButton"
+                    android:text="35mm"
+                    android:tag="35" />
+
+                <!-- 70mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn70mm"
+                    style="@style/FocalButton"
+                    android:text="70mm"
+                    android:tag="70" />
+
+                <!-- 200mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn200mm"
+                    style="@style/FocalButton"
+                    android:text="200mm"
+                    android:tag="200" />
+
+                <!-- 400mm -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn400mm"
+                    style="@style/FocalButton"
+                    android:text="400mm"
+                    android:tag="400" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</FrameLayout>
