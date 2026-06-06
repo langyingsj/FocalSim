@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 按钮文字颜色选择器：选中时亮黄色，未选中时白色半透明 -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true" android:color="#FFD700" />
+    <item android:color="#CCFFFFFF" />
+</selector>
